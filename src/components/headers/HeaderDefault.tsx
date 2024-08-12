@@ -48,7 +48,7 @@ export function HeaderDefault() {
                     {!user ?
                         <div className="hidden lg:flex gap-8">
                             <ButtonSecondary label="Fazer login" onClick={() => router.push('/login')} />
-                            <ButtonPrimary label="Criar conta" onClick={() => router.push('/create-account')} />
+                            <ButtonPrimary label="Criar conta" onClick={() => router.push('/type-account')} />
                         </div> :
                         <div className="hidden lg:flex items-center gap-4 relative" onMouseOver={() => setShowDrop(true)} onMouseLeave={() => setShowDrop(false)}>
                             <div className="flex flex-col">
