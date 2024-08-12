@@ -12,7 +12,7 @@ export default function Login() {
                 <Image src={'/LogoVerticalFullColor.svg'} alt="Logo" width={160} height={142} />
                 <h1 className={'font-display text-display'}>Acesse sua conta</h1>
                 <p className={'font-paragraph text-center text-paragraph'}>Acesse sua conta para ficar atualizado sobre os eventos da região de Caldas Novas</p>
-                <ButtonPrimary 
+                {/*<ButtonPrimary 
                     onClick={() => {}}
                     label="Logar com a Apple" 
                     large={true} 
@@ -31,7 +31,7 @@ export default function Login() {
                     <div className="flex-1 border-t border-gray-200"/>
                     <span className="font-paragraph1">ou</span>
                     <div className="flex-1 border-t border-gray-200"/>
-                </div>
+                </div>*/}
                 <FormLogin/>
             </div>
         </main>
