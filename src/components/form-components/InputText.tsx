@@ -23,7 +23,7 @@ export function InputText({label, placeholder, disabled, id, type, required, err
             <div className="flex justify-between items-center">
                 <label  className="font-span2 text-span " htmlFor={id}>{label}</label>
                 {
-                    !required && <span className="font-span2 text-disabled">Opcional</span>
+                    !required && required !== undefined && <span className="font-span2 text-disabled">Opcional</span>
                 }
             </div>
             
