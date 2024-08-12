@@ -299,6 +299,7 @@ export function CreatePlaceContent() {
                         <InputText
                             id="cep"
                             label="CEP"
+                            required="False"
                             placeholder="Inserir CEP"
                             {...zipcode}
                             onBlur={e => findPlaceByZipcode(e.target.value)}
@@ -306,6 +307,7 @@ export function CreatePlaceContent() {
                         <InputText
                             id="state"
                             label="Estado"
+                            required="False"
                             placeholder="Inserir o Estado"
                             disabled
                             {...state}
@@ -313,6 +315,7 @@ export function CreatePlaceContent() {
                         <InputText
                             id="city"
                             label="Cidade"
+                            required="False"
                             placeholder="Inserir a Cidade"
                             disabled
                             {...city}
@@ -320,6 +323,7 @@ export function CreatePlaceContent() {
                         <InputText
                             id="logradouro"
                             label="Logradouro"
+                            required="False"
                             placeholder="Inserir Logradouro"
                             {...address}
                         />
