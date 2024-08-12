@@ -97,7 +97,7 @@ export function CreatePlaceContent() {
         form.append('file', file);
 
         await api.post(placeType == 1 ? `events/${id}/upload` : `tourist-attractions/${id}/upload`, form).then(res => res.data);
-        console.log('Resposta do upload de arquivo:', response); // Adicione esta linha
+        
     }
 
     const findPlaceByZipcode = async (str: string) => {
