@@ -72,7 +72,7 @@ export function CreatePlaceContent() {
                 sponsors: "Exemplo dos patrocinadores"
             }).then(res => res.data);
             if (success && result?.id) {
-                if (files?.length > 0) {
+                if (files.length > 0) {
                     for (let i = 0; i < files.length; i++) {
                         await uploadFile(result.id, files[i]);
                     }
