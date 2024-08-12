@@ -70,14 +70,20 @@ export function CreatePlaceContent() {
                 admissionFee: true,
                 images: [],
                 sponsors: "Exemplo dos patrocinadores"
-            }).then(res => res.data);
+            }).then(res => {
+                console.log('Resposta da API:', res.data); // Adicione esta linha
+                return res.data;
+            });
             if (success && result?.id) {
+                console.log('Evento criado com sucesso com ID:', result.id); // Adicione esta linha
                 if (files && files.length > 0) {
                     for (let i = 0; i < files.length; i++) {
                         await uploadFile(result.id, files[i]);
                     }
                 }
                 setSuccess(true);
+            } else {
+                console.log('Falha ao criar evento. Sucesso:', success); // Adicione esta linha
             }
         } catch (error) {
 
@@ -91,6 +97,7 @@ export function CreatePlaceContent() {
         form.append('file', file);
 
         await api.post(placeType == 1 ? `events/${id}/upload` : `tourist-attractions/${id}/upload`, form).then(res => res.data);
+        console.log('Resposta do upload de arquivo:', response); // Adicione esta linha
     }
 
     const findPlaceByZipcode = async (str: string) => {
