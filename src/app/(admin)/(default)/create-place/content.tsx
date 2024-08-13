@@ -71,11 +71,9 @@ export function CreatePlaceContent() {
                 images: [],
                 sponsors: "Exemplo dos patrocinadores"
             }).then(res => {
-                console.log('Resposta da API:', res.data); // Adicione esta linha
                 return res.data;
             });
             if (success && result?.id) {
-                console.log('Evento criado com sucesso com ID:', result.id); // Adicione esta linha
                 if (files && files.length > 0) {
                     for (let i = 0; i < files.length; i++) {
                         await uploadFile(result.id, files[i]);
