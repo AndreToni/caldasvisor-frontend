@@ -39,7 +39,7 @@ export default function EventViewContent({ result }: { result: IEvent }) {
                         </div>
                     </div>
                     
-
+                    <Tickets tickets={result.tickets}/>
                     <OpeningHours openingHours={result.openingHours} />
                 </div>
                 <div className="hidden lg:flex max-h-[781px] rounded overflow-hidden">
