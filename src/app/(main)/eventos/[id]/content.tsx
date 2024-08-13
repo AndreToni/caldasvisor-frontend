@@ -34,6 +34,8 @@ export default function EventViewContent({ result }: { result: IEvent }) {
                             <ButtonSecondary label="Acessar pelo maps" onClick={() => { }} />
                         </div>
                     </div>
+                    console.log(result.tickets);
+
                     <Tickets tickets={result.tickets} />
                     <OpeningHours openingHours={result.openingHours} />
                 </div>
