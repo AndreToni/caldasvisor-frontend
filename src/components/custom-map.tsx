@@ -9,8 +9,8 @@ const containerStyle = {
 
 export function CustomMap() {
     const center = {
-        lat: -18.1517865,
-        lng: -47.9294438
+        lat: -17.7452,
+        lng: -48.6253
     };
 
     const { isLoaded } = useJsApiLoader({
