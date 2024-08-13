@@ -35,7 +35,7 @@ export default function EventViewContent({ result }: { result: IEvent }) {
                         <div className='flex flex-wrap items-center gap-6 bg-shapes-background-aux p-4 border border-grey1 rounded'>
                             <Image src={'/map.svg'} alt="" width={24} height={24} />
                             <p className='font-paragraph2 text-paragraph flex-1 min-w-[200px]'>{result.address}</p>
-                            <ButtonSecondary label="Acessar pelo maps" onClick={() => window.open(mapsUrl, '_blank')} />
+                            <ButtonSecondary label="Acessar pelo maps" onClick={() => {window.open(mapsUrl, '_blank')}} />
                         </div>
                     </div>
                     
