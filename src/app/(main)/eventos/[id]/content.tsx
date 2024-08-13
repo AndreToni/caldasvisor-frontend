@@ -44,7 +44,7 @@ export default function EventViewContent({ result }: { result: IEvent }) {
                     <OpeningHours openingHours={result.openingHours} />
                 </div>
                 <div className="hidden lg:flex max-h-[781px] rounded overflow-hidden">
-                    <CustomMap location={location} />
+                    <CustomMap location={location} items={result.address}/>
                 </div>
             </div>
         </div>

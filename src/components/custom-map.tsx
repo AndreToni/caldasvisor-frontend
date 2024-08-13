@@ -6,7 +6,7 @@ const containerStyle = {
     height: '100%',
 };
 
-export function CustomMap({ location }) {
+export function CustomMap({ location, items }) {
     const { lat, lng } = location;
     const center = { lat, lng };
 
@@ -15,16 +15,16 @@ export function CustomMap({ location }) {
         googleMapsApiKey: "AIzaSyD3uua5UjFuo8kjaalxT8WwJoUPnnK3rGw"
     })
 
-    const [map, setMap] = useState(null)
-    const [event, setEvent] = useState(null)
+    const [map, setMap] = useState(null);
+    const [event, setEvent] = useState(null);
 
     const onLoad = useCallback(function callback(map) {
-        setMap(map)
-    }, [])
+        setMap(map);
+    }, []);
 
     const onUnmount = useCallback(function callback(map) {
-        setMap(null)
-    }, [])
+        setMap(null);
+    }, []);
 
     if (!isLoaded) {
         return null;
@@ -42,12 +42,16 @@ export function CustomMap({ location }) {
                 mapTypeControl: false
             }}
         >
-            <MarkerF
-                key={2}
-                position={center}
-                onClick={() => setEvent("Casa do André")}
-                icon={{ url: '/pointer.png' }}
-            />
+            {items.map(item => (
+                <MarkerF
+                    key={item.id}
+                    position={{ lat: +item.lat, lng: +item.lng }}
+                    onClick={() => {
+                        setEvent(item);
+                    }}
+                    icon={{ url: '/pointer.png' }}
+                />
+            ))}
         </GoogleMap>
     )
 }
