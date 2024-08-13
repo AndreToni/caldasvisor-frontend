@@ -39,7 +39,7 @@ export function TouristAttractionsViewContent({ result }: { result: ITouristAttr
                     <OpeningHours openingHours={result.openingHours} />
                 </div>
                 <div className="hidden lg:flex max-h-[781px] rounded overflow-hidden">
-                    <CustomMap />
+                    <CustomMap place={result}/>
                 </div>
             </div>
         </div>

@@ -1,3 +1,4 @@
+import { IEvent, ITouristAttraction } from "@/models/place";
 import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
 import { useCallback, useState } from "react";
 
@@ -6,27 +7,30 @@ const containerStyle = {
     height: '100%',
 };
 
-export function CustomMap({ location, items }) {
-    const { lat, lng } = location;
-    const center = { lat, lng };
+
+export function CustomMap({ place }: { place: IEvent | ITouristAttraction }) {
+    const center = {
+        lat: +place.lat,
+        lng: +place.lng,
+    };
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: "AIzaSyD3uua5UjFuo8kjaalxT8WwJoUPnnK3rGw"
     })
 
-    const [map, setMap] = useState(null);
-    const [event, setEvent] = useState(null);
+    const [map, setMap] = useState(null)
+    const [event, setEvent] = useState(null)
 
     const onLoad = useCallback(function callback(map) {
-        setMap(map);
-    }, []);
+        setMap(map)
+    }, [])
 
     const onUnmount = useCallback(function callback(map) {
-        setMap(null);
-    }, []);
+        setMap(null)
+    }, [])
 
-    if (!isLoaded) {
+    if(!isLoaded) {
         return null;
     }
 
@@ -42,16 +46,11 @@ export function CustomMap({ location, items }) {
                 mapTypeControl: false
             }}
         >
-            {items.map(item => (
-                <MarkerF
-                    key={item.id}
-                    position={{ lat: +item.lat, lng: +item.lng }}
-                    onClick={() => {
-                        setEvent(item);
-                    }}
-                    icon={{ url: '/pointer.png' }}
-                />
-            ))}
+            <MarkerF
+                key={2}
+                position={center}
+                icon={{ url: '/pointer.png' }}
+            />
         </GoogleMap>
     )
 }
