@@ -11,7 +11,11 @@ import Link from "next/link";
 import { FiChevronRight, FiMap } from "react-icons/fi";
 
 export default function EventViewContent({ result }: { result: IEvent }) {
+
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(result.address)}`;
+
     return (
+        
         <div className="flex flex-col gap-6 py-6 max-lg:px-6 w-full max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-6">
@@ -31,10 +35,10 @@ export default function EventViewContent({ result }: { result: IEvent }) {
                         <div className='flex flex-wrap items-center gap-6 bg-shapes-background-aux p-4 border border-grey1 rounded'>
                             <Image src={'/map.svg'} alt="" width={24} height={24} />
                             <p className='font-paragraph2 text-paragraph flex-1 min-w-[200px]'>{result.address}</p>
-                            <ButtonSecondary label="Acessar pelo maps" onClick={() => { }} />
+                            <ButtonSecondary label="Acessar pelo maps" onClick={() => window.open(mapsUrl, '_blank')} />
                         </div>
                     </div>
-                    console.log(result.tickets);
+                    
 
                     <Tickets tickets={result.tickets} />
                     <OpeningHours openingHours={result.openingHours} />
