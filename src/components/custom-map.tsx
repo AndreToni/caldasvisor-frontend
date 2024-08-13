@@ -6,12 +6,9 @@ const containerStyle = {
     height: '100%',
 };
 
-
-export function CustomMap() {
-    const center = {
-        lat: -17.7452,
-        lng: -48.6253
-    };
+export function CustomMap({ location }) {
+    const { lat, lng } = location;
+    const center = { lat, lng };
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -29,7 +26,7 @@ export function CustomMap() {
         setMap(null)
     }, [])
 
-    if(!isLoaded) {
+    if (!isLoaded) {
         return null;
     }
 
@@ -47,8 +44,8 @@ export function CustomMap() {
         >
             <MarkerF
                 key={2}
-                position={{ lat: -18.1517865, lng: -47.9294438 }}
-                onClick={() => setEvent(`Casa do André`)}
+                position={center}
+                onClick={() => setEvent("Casa do André")}
                 icon={{ url: '/pointer.png' }}
             />
         </GoogleMap>

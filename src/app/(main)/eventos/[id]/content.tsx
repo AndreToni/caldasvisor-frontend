@@ -1,5 +1,3 @@
-'use client'
-
 import { ButtonSecondary } from "@/components/buttons/ButtonSecondary";
 import { CustomMap } from "@/components/custom-map";
 import { OpeningHours } from "@/components/opening-hours";
@@ -8,14 +6,17 @@ import { Tickets } from "@/components/tickets";
 import { IEvent } from "@/models/place";
 import Image from "next/image";
 import Link from "next/link";
-import { FiChevronRight, FiMap } from "react-icons/fi";
+import { FiChevronRight } from "react-icons/fi";
 
 export default function EventViewContent({ result }: { result: IEvent }) {
-
     const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(result.address)}`;
 
+    const location = {
+        lat: -17.7452, // Substitua por result.latitude se disponível
+        lng: -48.6253  // Substitua por result.longitude se disponível
+    };
+
     return (
-        
         <div className="flex flex-col gap-6 py-6 max-lg:px-6 w-full max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-6">
@@ -43,7 +44,7 @@ export default function EventViewContent({ result }: { result: IEvent }) {
                     <OpeningHours openingHours={result.openingHours} />
                 </div>
                 <div className="hidden lg:flex max-h-[781px] rounded overflow-hidden">
-                    <CustomMap />
+                    <CustomMap location={location} />
                 </div>
             </div>
         </div>
