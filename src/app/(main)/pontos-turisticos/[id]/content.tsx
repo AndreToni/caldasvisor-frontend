@@ -18,9 +18,9 @@ export function TouristAttractionsViewContent({ result }: { result: ITouristAttr
             <div className="grid lg:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-6">
                     <div className="flex items-center gap-2">
-                        <Link href='/pontos-turisticos' className="font-span1 text-support-info">Pontos turísticos</Link>
+                        <Link href='/pontos-turisticos' className="font-span2 text-support-info">Pontos turísticos</Link>
                         <FiChevronRight />
-                        <span className="font-span1 text-span">{result.name}</span>
+                        <span className="font-span2 text-span">{result.name}</span>
                     </div>
                     <h1 className="font-heading1 text-title">{result.name}</h1>
                     <div className='rounded w-full h-[360px] relative overflow-hidden'>
