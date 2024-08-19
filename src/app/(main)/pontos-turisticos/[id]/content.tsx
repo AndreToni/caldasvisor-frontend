@@ -12,7 +12,9 @@ import Link from "next/link";
 import { FiChevronRight, FiMap } from "react-icons/fi";
 
 export function TouristAttractionsViewContent({ result }: { result: ITouristAttraction }) {
+    
     const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(result.address)}`;
+    
     return (
         <div className="flex flex-col gap-6 py-6 max-lg:px-6 w-full max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-6">
