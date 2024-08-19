@@ -54,18 +54,14 @@ export default function HomeContent({ results }) {
           fullscreenControl: false
         }}
       >
-        {
-          results.map(item => (
-            <MarkerF
-              key={item.id}
-              position={{ lat: +item.lat, lng: +item.lng }}
-              onClick={() => {
-                setEvent(item)
-              }}
-              icon={{ url: '/pointer.png' }}
-            />
-          ))
-        }
+        {results.map(item => (
+          <MarkerF
+            key={item.id}
+            position={{ lat: parseFloat(item.lat), lng: parseFloat(item.lng) }}
+            onClick={() => setEvent(item)}
+            icon={{ url: '/pointer.png' }}
+          />
+        ))}
       </GoogleMap>
       {user && user.type != 'customer' && user.active &&
         <div className='w-full max-w-7xl mx-auto max-lg:px-[25px]'>
@@ -77,5 +73,5 @@ export default function HomeContent({ results }) {
         </div>
       }
     </div>
-  ) : <></>
+  ) : <></>;
 }
