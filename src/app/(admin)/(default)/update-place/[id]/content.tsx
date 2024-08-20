@@ -102,9 +102,19 @@ export function UpdatePlaceContent({ place, type }: { place: IEvent | ITouristAt
         }).then(res => res.data);
 
         if (results[0]) {
-            city.setValue(results[0].city);
-            state.setValue(results[0].state);
-            address.setValue(results[0].route);
+            const { route, number, district, city: cityResult, state: stateResult } = results[0];
+            console.log(results[0]);
+            
+            city.setValue(cityResult);
+            state.setValue(stateResult);
+            
+            const formattedAddress = [
+                route,
+                number && `, ${number}`,
+                district && ` - ${district}`
+            ].filter(Boolean).join('');
+        
+            address.setValue(formattedAddress);
         }
     }
 
@@ -153,7 +163,8 @@ export function UpdatePlaceContent({ place, type }: { place: IEvent | ITouristAt
             if (ticketType.validate() && ticketValue.validate()) {
                 setTickets(old => [...old, {
                     type: ticketType.value.name,
-                    value: ticketValue.value
+                    value: ticketValue.value,
+                    link: ticketLink.value,
                 }]);
             }
         } catch (error) {

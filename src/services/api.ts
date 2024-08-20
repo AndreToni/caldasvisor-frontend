@@ -8,7 +8,8 @@ import { parseCookies } from "nookies";
 export function getApi(ctx?: any) {
     const { 'access_token': token } = parseCookies(ctx);
     const api = axios.create({
-        baseURL: 'https://caldasvisor-backend-production.up.railway.app/'
+        baseURL: 'http://localhost:8080/'
+        //baseURL: 'https://caldasvisor-backend-production.up.railway.app/'
     })
     if (token) api.defaults.headers['Authorization'] = `Bearer ${token}`;
     return api;
