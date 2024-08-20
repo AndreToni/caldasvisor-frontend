@@ -38,9 +38,9 @@ export function TouristAttractionsViewContent({ result }: { result: ITouristAttr
                             <ButtonSecondary label="Acessar pelo maps" onClick={() => {window.open(mapsUrl, '_blank')}} />
                         </div>
                     </div>
-                    if (result.tickets != null){
+                    {result.tickets && result.tickets.length > 0 && (
                         <Tickets tickets={result.tickets} />
-                    }
+                    )}
                     
                     <OpeningHours openingHours={result.openingHours} />
                 </div>
