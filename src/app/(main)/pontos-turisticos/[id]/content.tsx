@@ -19,18 +19,16 @@ export function TouristAttractionsViewContent({ result }: { result: ITouristAttr
         const script = document.createElement('script');
         script.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
         script.async = true;
-        document.body.appendChild(script);
-
         script.onload = () => {
-            if (window.VLibras && typeof window.VLibras.Widget === 'function') {
+            if (typeof window.VLibras !== 'undefined' && typeof window.VLibras.Widget === 'function') {
                 new window.VLibras.Widget('https://vlibras.gov.br/app');
             } else {
-                console.error('VLibras script not loaded properly.');
+                console.error('VLibras not loaded correctly.');
             }
         };
+        document.body.appendChild(script);
 
         return () => {
-            // Cleanup the script if needed when the component is unmounted
             document.body.removeChild(script);
         };
     }, []);
@@ -68,5 +66,5 @@ export function TouristAttractionsViewContent({ result }: { result: ITouristAttr
                 </div>
             </div>
         </div>
-    )
+    );
 }
