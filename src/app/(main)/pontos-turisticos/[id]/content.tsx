@@ -11,6 +11,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiChevronRight } from "react-icons/fi";
 
+declare global {
+    interface Window {
+        VLibras: {
+            Widget: new (url: string) => any;
+        };
+    }
+}
+
 export function TouristAttractionsViewContent({ result }: { result: ITouristAttraction }) {
 
     const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(result.address)}`;
