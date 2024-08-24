@@ -73,6 +73,9 @@ export function TouristAttractionsViewContent({ result }: { result: ITouristAttr
                     <CustomMap place={result} />
                 </div>
             </div>
+            <script>
+                new window.VLibras.Widget('https://vlibras.gov.br/app');
+            </script>
         </div>
     );
 }
