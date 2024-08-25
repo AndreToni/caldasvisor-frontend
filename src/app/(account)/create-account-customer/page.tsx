@@ -12,7 +12,6 @@ export default function createAccountCustomerOne(){
                 <p className={'font-paragraph text-center text-paragraph'}>Crie uma conta de organizador agora mesmo e tenha a oportunidade de criar seus próprios eventos na plataforma, além de receber atualizações sobre os eventos da região de Caldas Novas</p>
                 <FormCreateAccountCustumerOne />
             </div>
-            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
         </main>
     )
 }
