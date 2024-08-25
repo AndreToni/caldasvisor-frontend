@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation"
 import { useState } from "react";
 import { FiX } from "react-icons/fi";
 import { TextField, useTextField } from "ui-form-components";
+import VLibras from 'vlibras-nextjs';
+
 
 export default function Perfil() {
     const { user, updateUser, signout} = useAuth();
@@ -97,6 +99,7 @@ export default function Perfil() {
                 labelPrimaryButton="Não desejo"
                 labelSecondaryButton="Sim desejo "
             />
+            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
         </main>
     )
 }

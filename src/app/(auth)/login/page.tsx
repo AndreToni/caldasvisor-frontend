@@ -4,6 +4,8 @@ import { ButtonPrimary } from "@/components/buttons/ButtonPrimary";
 import { FormLogin } from "@/components/form/FormLogin";
 import Image from "next/image";
 import {AiFillApple, AiOutlineGoogle} from 'react-icons/ai'
+import VLibras from 'vlibras-nextjs';
+
 
 export default function Login() {
     return (
@@ -33,6 +35,7 @@ export default function Login() {
                     <div className="flex-1 border-t border-gray-200"/>
                 </div>*/}
                 <FormLogin/>
+                {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
             </div>
         </main>
     );

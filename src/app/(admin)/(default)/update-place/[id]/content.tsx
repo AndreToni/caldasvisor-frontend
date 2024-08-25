@@ -17,6 +17,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react"
 import { FiCheck, FiImage, FiTrash, FiX } from "react-icons/fi";
 import { useTextField } from "ui-form-components";
+import VLibras from 'vlibras-nextjs';
+
 
 export function UpdatePlaceContent({ place, type }: { place: IEvent | ITouristAttraction, type: number }) {
     const [files, setFiles] = useState<Array<File | string>>(place.images ?? []);
@@ -355,6 +357,7 @@ export function UpdatePlaceContent({ place, type }: { place: IEvent | ITouristAt
                     }
                 </div>
             </div>
+            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
         </main>
     )
 }
