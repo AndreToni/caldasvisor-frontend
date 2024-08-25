@@ -49,7 +49,7 @@ export function TouristAttractionsViewContent({ result }: { result: ITouristAttr
                     <CustomMap place={result}/>
                 </div>
             </div>
-            <VLibras forceOnload />
+            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
         </div>
     )
 }
