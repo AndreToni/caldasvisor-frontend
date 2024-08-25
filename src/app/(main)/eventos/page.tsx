@@ -1,7 +1,6 @@
 import { CardDefault } from "@/components/cards/CardDefault";
 import { InputSearch } from "@/components/form-components/InputSearch";
 import { fetchData } from "@/services/fetch";
-import VLibras from 'vlibras-nextjs';
 
 
 export default async function Eventos({searchParams}) {
@@ -16,7 +15,7 @@ export default async function Eventos({searchParams}) {
                     results.map(item => <CardDefault key={item.id} place={{...item, type: 'event'}} />)
                 }
             </div>
-            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
+
         </div>
     )
 }
