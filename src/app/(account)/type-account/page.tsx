@@ -6,7 +6,6 @@ import { ButtonSecondary } from "@/components/buttons/ButtonSecondary";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { RadioCard } from "@/components/radio-card/RadioCard";
-import VLibras from 'vlibras-nextjs';
 
 
 export default function typeAccount(){
@@ -83,7 +82,6 @@ export default function typeAccount(){
                 large={true} 
                 full={true}  
             />
-            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
         </div>
     );
 }

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ButtonPrimary } from "@/components/buttons/ButtonPrimary";
 import { AiFillApple, AiOutlineGoogle } from 'react-icons/ai'
 import { FormCreteAccount } from "@/components/form/FormCreateAccount";
-import VLibras from 'vlibras-nextjs';
 
 
 export default function createAccount(){
@@ -35,7 +34,6 @@ export default function createAccount(){
                     <div className="flex-1 border-t border-gray-200"/>
                 </div>*/}
                 <FormCreteAccount />
-                {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
             </div>
         </main>
     )
