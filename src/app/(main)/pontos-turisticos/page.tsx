@@ -1,5 +1,3 @@
-'use client'
-
 import { CardDefault } from "@/components/cards/CardDefault";
 import { InputSearch } from "@/components/form-components/InputSearch";
 import { fetchData } from "@/services/fetch";
