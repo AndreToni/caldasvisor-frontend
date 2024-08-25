@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { FormCreateAccountCustumerOne } from "@/components/form/FormCreateAccountCustumerOne";
-import VLibras from 'vlibras-nextjs';
 
 
 export default function createAccountCustomerOne(){
