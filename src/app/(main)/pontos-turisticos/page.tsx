@@ -23,11 +23,28 @@ export default async function Eventos({searchParams}) {
 
 function ClientOnlyVLibras() {
     useEffect(() => {
+        // Verifica se estamos no ambiente de produção
         if (process.env.NODE_ENV === "production") {
-            // Inicializa o VLibras somente no cliente
-            new VLibras({ forceOnload: true });
+            // Cria um novo elemento script para carregar o VLibras
+            const script = document.createElement('script');
+            script.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
+            script.async = true;
+            script.onload = () => {
+                // Inicializa o VLibras após o script ser carregado
+                if (window.VLibras) {
+                    new window.VLibras.Widget('https://vlibras.gov.br/app');
+                } else {
+                    console.error('VLibras failed to load.');
+                }
+            };
+            document.body.appendChild(script);
+
+            // Limpa o script quando o componente é desmontado
+            return () => {
+                document.body.removeChild(script);
+            };
         }
     }, []);
 
     return null;
-}
+    }
