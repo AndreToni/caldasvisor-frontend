@@ -5,7 +5,7 @@ import React from 'react';
 
 interface Props{
     onClick: () => void,
-    label: string,
+    label?: string,
     Icon?: React.FC,
     large?: boolean,
     full?: boolean,

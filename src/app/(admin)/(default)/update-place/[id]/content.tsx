@@ -1,7 +1,9 @@
 'use client'
 
+import { ButtonIcon } from "@/components/buttons/ButtonIcon";
 import { ButtonPrimary } from "@/components/buttons/ButtonPrimary";
 import { ButtonSecondary } from "@/components/buttons/ButtonSecondary";
+import { InputFile } from "@/components/form-components/InputFile";
 import { InputText } from "@/components/form-components/InputText";
 import Select from "@/components/form-components/Select";
 import { Textarea } from "@/components/form-components/Textarea";
@@ -76,7 +78,6 @@ export function UpdatePlaceContent({ place, type }: { place: IEvent | ITouristAt
                 if (files.length > 0) {
                     for (let i = 0; i < files.length; i++) {
                         if (files[i] instanceof File) {
-                            alert('entrou');
                             await uploadFile(result.id, files[i] as File);
                         }
                     }
@@ -106,16 +107,16 @@ export function UpdatePlaceContent({ place, type }: { place: IEvent | ITouristAt
         if (results[0]) {
             const { route, number, district, city: cityResult, state: stateResult } = results[0];
             console.log(results[0]);
-            
+
             city.setValue(cityResult);
             state.setValue(stateResult);
-            
+
             const formattedAddress = [
                 route,
                 number && `, ${number}`,
                 district && ` - ${district}`
             ].filter(Boolean).join('');
-        
+
             address.setValue(formattedAddress);
         }
     }
@@ -187,6 +188,19 @@ export function UpdatePlaceContent({ place, type }: { place: IEvent | ITouristAt
         }
     }
 
+    const removeImage = async (file: File | string, index: number) => {
+        if (confirm(`Deseja mesmo essa imagem?`)) {
+            if (file && typeof (file) == 'string') {
+                await api.post(placeType == 1 ? `events/${place.id}/remove-image` : `tourist-attractions/${place.id}/upload`, {path: file}).then(res => res.data);
+            }
+
+            const array = [...files];
+            array.splice(index, 1);
+            setFiles(array);
+
+        }
+    }
+
     return (
         <main className="relative py-8 max-lg:px-6">
             <div className="w-full max-w-[416px] min-h-screen mx-auto flex flex-col gap-6">
@@ -214,31 +228,37 @@ export function UpdatePlaceContent({ place, type }: { place: IEvent | ITouristAt
                                 index={0}
                                 file={files[0] ?? null}
                                 onChange={(f) => setFiles(old => [...old, f])}
+                                onRemove={(f) => removeImage(f, 0)}
                             />
                             <InputFile
                                 index={1}
                                 file={files[1] ?? null}
                                 onChange={(f) => setFiles(old => [...old, f])}
+                                onRemove={(f) => removeImage(f, 1)}
                             />
                             <InputFile
                                 index={2}
                                 file={files[2] ?? null}
                                 onChange={(f) => setFiles(old => [...old, f])}
+                                onRemove={(f) => removeImage(f, 2)}
                             />
                             <InputFile
                                 index={3}
                                 file={files[3] ?? null}
                                 onChange={(f) => setFiles(old => [...old, f])}
+                                onRemove={(f) => removeImage(f, 3)}
                             />
                             <InputFile
                                 index={4}
                                 file={files[4] ?? null}
                                 onChange={(f) => setFiles(old => [...old, f])}
+                                onRemove={(f) => removeImage(f, 4)}
                             />
                             <InputFile
                                 index={5}
                                 file={files[5] ?? null}
                                 onChange={(f) => setFiles(old => [...old, f])}
+                                onRemove={(f) => removeImage(f, 5)}
                             />
                         </div>
                         <div className="border-t border-grey1"></div>
@@ -359,30 +379,5 @@ export function UpdatePlaceContent({ place, type }: { place: IEvent | ITouristAt
             </div>
             {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
         </main>
-    )
-}
-
-export function InputFile({ file, index, onChange }: { file?: File | string, index: number, onChange?: (file: File) => void }) {
-    return (
-        <>
-            <input
-                className={`hidden`}
-                id={`file-${index}`}
-                name={`file-${index}`}
-                type="file"
-                onChange={(e) => {
-                    onChange(e.target.files[0]);
-                }} />
-            <label htmlFor={`file-${index}`} className="relative overflow-hidden cursor-pointer h-32 flex text-disabled flex-col gap-[10px] items-center justify-center bg-shapes-background-aux rounded border border-dashed">
-                {file && typeof (file) != 'string' && <Image src={URL.createObjectURL(file)} alt="" fill objectFit="cover" />}
-                {file && typeof (file) == 'string' && <Image src={'http://caldasvisor-backend-production.up.railway.app/' + file} alt="" fill objectFit="cover" />}
-                {!file &&
-                    <>
-                        <FiImage />
-                        <span className="font-span1">Inserir imagem</span>
-                    </>
-                }
-            </label>
-        </>
     )
 }

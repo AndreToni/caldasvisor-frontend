@@ -27,7 +27,7 @@ export function CardDefault({ place, myPlace }: { place: IEvent | ITouristAttrac
         return (
             <div className="flex flex-col gap-4 p-4 bg-shapes-background-aux rounded border border-grey1">
                 <div className='rounded w-full h-[280px] relative overflow-hidden'>
-                    {place.images[0] != null ? <Image src={'http://caldasvisor-backend-production.up.railway.app/' + place.images[0]} alt="" fill sizes='100%' className="object-cover" /> : null}
+                    {place.images && place.images[0] != null ? <Image src={'http://caldasvisor-backend-production.up.railway.app/' + place.images[0]} alt="" fill sizes='100%' className="object-cover" /> : null}
                 </div>
                 <h4 className="font-heading4 text-title">{place.name}</h4>
                 <p className="font-paragraph2 text-paragraph">{place.address}</p>
