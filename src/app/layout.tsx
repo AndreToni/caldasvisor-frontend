@@ -27,8 +27,8 @@ export default function RootLayout({
         <AuthProvider user={user}>
           {children}
         </AuthProvider>
-        {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
       </body>
+      {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
     </html>
   )
 }
