@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { FormForgotMyPassword } from "@/components/form/FormForgotMyPassword";
-import VLibras from 'vlibras-nextjs';
+
 
 
 export default function forgotMyPassword(){
@@ -15,7 +15,7 @@ export default function forgotMyPassword(){
                 <FormForgotMyPassword />
                 
             </div>
-            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
+
         </main>
      );
 }

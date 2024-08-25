@@ -14,7 +14,7 @@ export default function recoverPassword(){
                 <FormRecoverPassword />
                 
             </div>
-            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
+
         </main>
      );
 }

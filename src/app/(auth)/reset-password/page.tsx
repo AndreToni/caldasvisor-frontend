@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FormRecoverPassword } from "@/components/form/FormRecoverPassword";
 import { FormResetPassword } from "@/components/form/FormResetPassword";
-import VLibras from 'vlibras-nextjs';
+
 
 
 export default function resetPassword(){
@@ -14,7 +14,6 @@ export default function resetPassword(){
                 <p className={'font-paragraph text-center text-paragraph'}>Por favor, insira a senha desejada nos campos abaixo para definir sua nova senha.</p>
                 <FormResetPassword />
             </div>
-            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
         </main>
      );
 }
