@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { AuthProvider } from '@/contexts/auth'
 import { cookies } from 'next/headers'
+import { CustomAccessibility } from '@/components/custom-accessibility'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider user={user}>
+          <CustomAccessibility />
           {children}
         </AuthProvider>
       </body>

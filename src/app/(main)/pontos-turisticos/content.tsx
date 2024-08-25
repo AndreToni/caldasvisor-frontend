@@ -2,8 +2,6 @@
 
 import { CardDefault } from "@/components/cards/CardDefault";
 import { InputSearch } from "@/components/form-components/InputSearch";
-import VLibras from 'vlibras-nextjs';
-
 
 export function PontosTuristicosContent({results}) {
     return (
@@ -15,7 +13,6 @@ export function PontosTuristicosContent({results}) {
                     results.map(item => <CardDefault key={item.id} place={item} />)
                 }
             </div>
-            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
         </div>
     )
 }
