@@ -13,8 +13,9 @@ export default function forgotMyPassword(){
                 <h1 className={'font-display text-display'}>Esqueceu a sua senha?</h1>
                 <p className={'font-paragraph text-center text-paragraph'}>Caso você tenha esquecido sua senha, insira seu endereço de e-mail para que possamos enviar um e-mail com as instruções para a troca da senha.</p>
                 <FormForgotMyPassword />
-                {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
+                
             </div>
+            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
         </main>
      );
 }

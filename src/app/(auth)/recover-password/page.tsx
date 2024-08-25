@@ -12,8 +12,9 @@ export default function recoverPassword(){
                 <h1 className={'font-display text-display'}>Troque sua senha</h1>
                 <p className={'font-paragraph text-center text-paragraph'}>Por favor, insira a senha desejada nos campos abaixo para definir sua nova senha.</p>
                 <FormRecoverPassword />
-                {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
+                
             </div>
+            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
         </main>
      );
 }
