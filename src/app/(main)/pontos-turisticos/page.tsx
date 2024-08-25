@@ -1,7 +1,6 @@
 import { CardDefault } from "@/components/cards/CardDefault";
 import { InputSearch } from "@/components/form-components/InputSearch";
 import { fetchData } from "@/services/fetch";
-import VLibras from 'vlibras-nextjs';
 
 export default async function Eventos({searchParams}) {
     const { results } = await fetchData(`tourist-attractions?${searchParams?.input && `input=${searchParams?.input}`}`, 0);
