@@ -8,6 +8,8 @@ import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
+import VLibras from 'vlibras-nextjs';
+
 
 const containerStyle = {
   width: '100%',
@@ -72,6 +74,7 @@ export default function HomeContent({ results }) {
           </div>
         </div>
       }
+      {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
     </div>
   ) : <></>;
 }
