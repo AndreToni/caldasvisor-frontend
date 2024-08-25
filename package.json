@@ -20,7 +20,8 @@
     "react-icons": "^4.11.0",
     "swiper": "^11.0.7",
     "ui-form-components": "^0.1.1",
-    "vanilla-masker": "^1.2.0"
+    "vanilla-masker": "^1.2.0",
+    "vlibras-nextjs": "^1.1.2"
   },
   "devDependencies": {
     "@types/node": "^20",
