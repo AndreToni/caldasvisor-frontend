@@ -11,6 +11,8 @@ import Link from "next/link";
 import { ProgressBar } from "../progress-bar/ProgressBar";
 import { api } from "@/services/api";
 import { ModalCenter } from "../modal/ModalCenter";
+import VLibras from 'vlibras-nextjs';
+
 
 export function FormCreateAccountCustumerOne() {
     const [step, setStep] = useState(1);
@@ -285,6 +287,8 @@ export function FormCreateAccountCustumerOne() {
                 title={'Erro ao criar conta'}
                 labelPrimaryButton="Tentar novamente"
             />
+        {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
+
         </>
     )
 }

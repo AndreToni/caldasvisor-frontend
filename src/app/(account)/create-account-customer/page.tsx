@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ProgressBar } from "@/components/progress-bar/ProgressBar";
 import { FormCreateAccountCustumerOne } from "@/components/form/FormCreateAccountCustumerOne";
 import VLibras from 'vlibras-nextjs';
 
