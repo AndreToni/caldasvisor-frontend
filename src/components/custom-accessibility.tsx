@@ -6,7 +6,7 @@ export function CustomAccessibility() {
     return (
         <>
             {process.env.NODE_ENV === "production" && (
-                <div className="fixed bottom-10 right-10 z-[9999]">
+                <div className="fixed bottom-10 right-10 z-[9999] pointer-events-auto">
                     <VLibras forceOnload />
                 </div>
             )}
