@@ -18,6 +18,7 @@ export function TouristAttractionsViewContent({ result }: { result: ITouristAttr
     
     return (
         <div className="flex flex-col gap-6 py-6 max-lg:px-6 w-full max-w-7xl mx-auto">
+            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
             <div className="grid lg:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-6">
                     <div className="flex items-center gap-2">
@@ -49,7 +50,7 @@ export function TouristAttractionsViewContent({ result }: { result: ITouristAttr
                     <CustomMap place={result}/>
                 </div>
             </div>
-            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
+            
         </div>
     )
 }
