@@ -9,7 +9,7 @@ import { IEvent } from "@/models/place";
 import Image from "next/image";
 import Link from "next/link";
 import { FiChevronRight, FiMap } from "react-icons/fi";
-import VLibras from 'vlibras-nextjs';
+
 
 
 export default function EventViewContent({ result }: { result: IEvent }) {
@@ -48,7 +48,7 @@ export default function EventViewContent({ result }: { result: IEvent }) {
                     <CustomMap place={result}/>
                 </div>
             </div>
-            {process.env.NODE_ENV === "production" && <VLibras forceOnload />}
+            
         </div>
     )
 }
